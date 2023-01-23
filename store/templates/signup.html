@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class = "p-4 m-4 border rounded pt-4">
+        <div class="col-lg-5 mx-auto ">
+            <form action="/signup" method = "POST">{% csrf_token %}
+            {% if error %}
+            <div class ="alert alert-danger" role = "alert">
+                {{error}}
+            </div>
+            {% endif %}
+            {% comment %} First Name  {% endcomment %}
+            <div class="form-group">
+                <label for="">First Name</label>
+                <input type="text" name="firstname" value="{{value.firstname}}" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+            </div>
+            {% comment %} Last Name  {% endcomment %}
+            <div class="form-group">
+                <label for="">Last Name</label>
+                <input type="text" name="lastname" value="{{value.lastname}}" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+            </div>
+            {% comment %} Mobile  {% endcomment %}
+            <div class="form-group">
+                <label for="">Phone no</label>
+                <input type="number" value="{{value.phone}}" name="phone" id="" class="form-control form-control-sm" placeholder="1233344" aria-describedby="helpId">
+            </div>  
+            {% comment %} Email  {% endcomment %}
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" name="email" id="" value="{{value.email}}" class="form-control form-control-sm" placeholder="example@gmail.com" aria-describedby="helpId">
+            </div>
+            {% comment %} Password  {% endcomment %}
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" id="" class="form-control form-control-sm" placeholder="********" aria-describedby="helpId">
+            </div>
+            
+            {% comment %} Submit  {% endcomment %}
+            <div class="form-group" action="/">
+                <input class="btn btn-info mt-2" type="submit" value="Careate An Account"></input>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}
